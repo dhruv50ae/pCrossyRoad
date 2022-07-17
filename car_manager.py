@@ -9,6 +9,7 @@ class CarManager(Turtle):
     def __init__(self):
         super().__init__()
         self.allCars = []
+        self.carSpeed = STARTING_MOVE_DISTANCE
 
     def createCars(self):
         randomChance = random.randint(1, 6)
@@ -24,4 +25,7 @@ class CarManager(Turtle):
 
     def moveCars(self):
         for car in self.allCars:
-            car.backward(STARTING_MOVE_DISTANCE)
+            car.backward(self.carSpeed)
+
+    def levelUp(self):
+        self.carSpeed += MOVE_INCREMENT
