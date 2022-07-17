@@ -2,6 +2,7 @@ import time
 from turtle import Screen
 from player import Player
 from car_manager import CarManager
+import car_manager
 from scoreboard import Scoreboard
 
 screen = Screen()
@@ -21,3 +22,8 @@ while game_is_on:
 
     carManager.createCars()
     carManager.moveCars()
+    for car in carManager.allCars:
+        if car.distance(player) < 20:
+            game_is_on = False
+
+screen.exitonclick()
